@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio
 
-## Getting Started
+A polished, modern personal portfolio website built with Next.js (App Router), TypeScript, Tailwind CSS, and Framer Motion.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js App Router**: Clean, server-rendered React components.
+- **Tailwind CSS**: Modern utility-first styling with a custom dark theme.
+- **Framer Motion**: Smooth, performant scroll animations and hover effects.
+- **Fully Responsive**: Optimized for mobile, tablet, and desktop views.
+- **Accessible**: Semantic HTML, visible focus states, and reduced-motion support.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Learn More
+## Customizing the Portfolio
 
-To learn more about Next.js, take a look at the following resources:
+This portfolio is designed to be easily updated without digging deep into the component code.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1. Update Content (Config)
+Open `src/data/config.ts`. Here you can update:
+- Your name, headline, and about section.
+- Social media links (GitHub, LinkedIn, Instagram, Email).
+- Your skills list (Frontend, Backend, Tools).
+- Your projects.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. Replace Images
+Image placeholders are used by default. To replace them:
+1. Add your professional headshot to the `public/` folder and name it `placeholder-profile.webp` (or change the filename in `src/components/sections/Hero.tsx`).
+2. Add screenshots of your projects to the `public/` folder.
+3. Update the `image` path for each project in `src/data/config.ts` (e.g., `image: "/my-project-screenshot.webp"`).
 
-## Deploy on Vercel
+### 3. Add a New Project
+1. Open `src/data/config.ts`.
+2. Locate the `projects` array.
+3. Add a new object following the existing structure:
+   ```typescript
+   {
+     id: "new-project-id",
+     title: "Project Title",
+     description: "A short description of what you built and why.",
+     image: "/new-project-image.webp",
+     tech: ["React", "Tailwind CSS"],
+     liveDemo: "https://example.com",
+     github: "https://github.com/yourusername/repo",
+   }
+   ```
+4. The new project will automatically appear in the Projects section.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+1. Push your code to a GitHub repository.
+2. Log in to Vercel and select "Add New Project".
+3. Import your GitHub repository.
+4. Click "Deploy". Vercel will automatically detect that it's a Next.js project and configure the build settings.
